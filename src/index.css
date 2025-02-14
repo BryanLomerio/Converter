@@ -10,11 +10,9 @@ body {
   padding: 2rem;
   font-family: Arial, sans-serif;
   color: #e0e0e0;
-  /* Light text for dark background */
   text-align: center;
 }
 
-/* Tab Navigation */
 .tab-container {
   display: flex;
   justify-content: center;
@@ -41,12 +39,10 @@ body {
   cursor: not-allowed;
 }
 
-/* Converter Section */
 .converter-section {
   margin-bottom: 1.5rem;
 }
 
-/* File Input Styling */
 .file-input {
   display: block;
   margin: 1rem auto;
@@ -57,7 +53,6 @@ body {
   color: #e0e0e0;
 }
 
-/* Convert Button */
 .convert-button {
   background: none;
   border: 1px solid #e0e0e0;
@@ -72,12 +67,10 @@ body {
   cursor: not-allowed;
 }
 
-/* Download Section */
 .download-section {
   margin-top: 1.5rem;
 }
 
-/* Download Link Styling */
 .download-link {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -91,4 +84,20 @@ body {
 .download-link:hover {
   background: #e0e0e0;
   color: #121212;
+}
+
+.convert-button {
+  background-color: #2A2A2A;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.convert-button:hover {
+  background-color: #444;
 }

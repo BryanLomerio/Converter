@@ -1,5 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
-
+import TabNavigation from './TabNavigation';
+import SvgConverter from './SvgConverter';
+import WebpConverter from './WebpConverter';
 
 const Converter: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'svg' | 'webp'>('svg');
@@ -24,7 +26,7 @@ const Converter: React.FC = () => {
         }
     };
 
-    // Convert SVG to PNG using canvas
+    //SVG to PNG
     const convertSvgToPng = () => {
         if (!svgFile) return;
         const reader = new FileReader();
@@ -52,7 +54,7 @@ const Converter: React.FC = () => {
         reader.readAsDataURL(svgFile);
     };
 
-    // Convert .webp to PNG using canvas (unchanged)
+    //WebP to PNG
     const convertWebpToPng = () => {
         if (!webpFile) return;
         const reader = new FileReader();
@@ -82,72 +84,22 @@ const Converter: React.FC = () => {
 
     return (
         <div className="converter-container">
-            <div className="tab-container">
-                <button
-                    onClick={() => handleTabSwitch('svg')}
-                    disabled={activeTab === 'svg'}
-                    className={`tab-button ${activeTab === 'svg' ? 'active' : ''}`}
-                >
-                    SVG to PNG
-                </button>
-                <button
-                    onClick={() => handleTabSwitch('webp')}
-                    disabled={activeTab === 'webp'}
-                    className={`tab-button ${activeTab === 'webp' ? 'active' : ''}`}
-                >
-                    .webp to PNG
-                </button>
-            </div>
-
+            <TabNavigation activeTab={activeTab} onTabSwitch={handleTabSwitch} />
             {activeTab === 'svg' && (
-                <div className="converter-section">
-                    <h2>SVG to PNG Converter</h2>
-                    <input
-                        type="file"
-                        accept=".svg"
-                        onChange={handleSvgUpload}
-                        className="file-input"
-                    />
-                    <button
-                        onClick={convertSvgToPng}
-                        disabled={!svgFile}
-                        className="convert-button"
-                    >
-                        Convert
-                    </button>
-                </div>
+                <SvgConverter
+                    svgFile={svgFile}
+                    conversionResult={conversionResult}
+                    onFileUpload={handleSvgUpload}
+                    onConvert={convertSvgToPng}
+                />
             )}
-
             {activeTab === 'webp' && (
-                <div className="converter-section">
-                    <h2>.webp to PNG Converter</h2>
-                    <input
-                        type="file"
-                        accept="image/webp"
-                        onChange={handleWebpUpload}
-                        className="file-input"
-                    />
-                    <button
-                        onClick={convertWebpToPng}
-                        disabled={!webpFile}
-                        className="convert-button"
-                    >
-                        Convert
-                    </button>
-                </div>
-            )}
-
-            {conversionResult && (
-                <div className="download-section">
-                    <h3>Download Converted File:</h3>
-                    <a
-                        href={conversionResult}
-                        download="converted.png"
-                        className="download-link"
-                    >
-                        Download PNG Image
-                    </a>
-                </div>
+                <WebpConverter
+                    webpFile={webpFile}
+                    conversionResult={conversionResult}
+                    onFileUpload={handleWebpUpload}
+                    onConvert={convertWebpToPng}
+                />
             )}
         </div>
     );
