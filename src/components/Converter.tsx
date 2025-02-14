@@ -1,15 +1,16 @@
-import React, { useState, ChangeEvent } from 'react';
-import TabNavigation from './TabNavigation';
-import SvgConverter from './SvgConverter';
-import WebpConverter from './WebpConverter';
+import React, { useState, ChangeEvent } from "react";
+import TabNavigation from "./TabNavigation";
+import SvgConverter from "./SvgConverter";
+import WebpConverter from "./WebpConverter";
+import PxToRemConverter from "./PxToRemConverter";
 
 const Converter: React.FC = () => {
-    const [activeTab, setActiveTab] = useState<'svg' | 'webp'>('svg');
+    const [activeTab, setActiveTab] = useState<"svg" | "webp" | "px-rem">("svg");
     const [svgFile, setSvgFile] = useState<File | null>(null);
     const [webpFile, setWebpFile] = useState<File | null>(null);
     const [conversionResult, setConversionResult] = useState<string | null>(null);
 
-    const handleTabSwitch = (tab: 'svg' | 'webp') => {
+    const handleTabSwitch = (tab: "svg" | "webp" | "px-rem") => {
         setActiveTab(tab);
         setConversionResult(null);
     };
@@ -26,7 +27,7 @@ const Converter: React.FC = () => {
         }
     };
 
-    //SVG to PNG
+    // SVG to PNG
     const convertSvgToPng = () => {
         if (!svgFile) return;
         const reader = new FileReader();
@@ -54,7 +55,7 @@ const Converter: React.FC = () => {
         reader.readAsDataURL(svgFile);
     };
 
-    //WebP to PNG
+    // WebP to PNG
     const convertWebpToPng = () => {
         if (!webpFile) return;
         const reader = new FileReader();
@@ -85,22 +86,13 @@ const Converter: React.FC = () => {
     return (
         <div className="converter-container">
             <TabNavigation activeTab={activeTab} onTabSwitch={handleTabSwitch} />
-            {activeTab === 'svg' && (
-                <SvgConverter
-                    svgFile={svgFile}
-                    conversionResult={conversionResult}
-                    onFileUpload={handleSvgUpload}
-                    onConvert={convertSvgToPng}
-                />
+            {activeTab === "svg" && (
+                <SvgConverter svgFile={svgFile} conversionResult={conversionResult} onFileUpload={handleSvgUpload} onConvert={convertSvgToPng} />
             )}
-            {activeTab === 'webp' && (
-                <WebpConverter
-                    webpFile={webpFile}
-                    conversionResult={conversionResult}
-                    onFileUpload={handleWebpUpload}
-                    onConvert={convertWebpToPng}
-                />
+            {activeTab === "webp" && (
+                <WebpConverter webpFile={webpFile} conversionResult={conversionResult} onFileUpload={handleWebpUpload} onConvert={convertWebpToPng} />
             )}
+            {activeTab === "px-rem" && <PxToRemConverter />}
         </div>
     );
 };

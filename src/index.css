@@ -101,3 +101,41 @@ body {
 .convert-button:hover {
   background-color: #444;
 }
+
+.converter-section {
+  text-align: center;
+  padding: 16px;
+}
+
+.note {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.file-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.result-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.result {
+  font-size: 16px;
+  color: #fff;
+}
+
+.copied {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
