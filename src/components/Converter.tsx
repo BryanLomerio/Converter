@@ -85,6 +85,7 @@ const Converter: React.FC = () => {
 
     return (
         <div className="converter-container">
+            <p className="description">No ads. No accounts. Just convert. As simple as it should be.</p>
 
             <TabNavigation activeTab={activeTab} onTabSwitch={handleTabSwitch} />
             {activeTab === "svg" && (
