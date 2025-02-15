@@ -8,7 +8,7 @@ body {
 }
 
 .converter-container {
-  max-width: 500px;
+  max-width: 31.25rem;
   margin: 0 auto;
   padding: 2rem;
   color: #e0e0e0;
@@ -43,8 +43,8 @@ body {
 
 .converter-section {
   text-align: center;
-  padding: 1rem;
-  margin-bottom: 24px;
+  padding: 16px;
+  margin-bottom: 1.5rem;
 }
 
 .note {
@@ -65,7 +65,7 @@ body {
 }
 
 .result-container {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +107,7 @@ body {
 .download-link {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid #e0e0e0;
+  border: 0.0625rem solid #e0e0e0;
   border-radius: 0.25rem;
   color: #e0e0e0;
   text-decoration: none;
