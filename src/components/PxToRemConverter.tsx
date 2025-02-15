@@ -10,12 +10,14 @@ const PxToRemConverter: React.FC = () => {
     const handlePxChange = (e: ChangeEvent<HTMLInputElement>) => {
         const px = e.target.value;
         setPxValue(px);
-        const rem = px ? (parseFloat(px) / DEFAULT_BASE_FONT_SIZE).toFixed(3) : "";
-        setRemValue(rem);
 
-        if (rem) {
-            //matic copy
+        if (px) {
+            const rem = parseFloat((parseFloat(px) / DEFAULT_BASE_FONT_SIZE).toFixed(4));
+            setRemValue(rem.toString());
+
             copyToClipboard(`${rem}rem`);
+        } else {
+            setRemValue("");
         }
     };
 
@@ -29,7 +31,9 @@ const PxToRemConverter: React.FC = () => {
     return (
         <div className="converter-section">
             <h2>PX to REM Converter</h2>
-            <p className="note">Automatically copied (including "rem") when you type!</p>
+            <p className="note">
+                Automatically copied (including "rem") when you type!
+            </p>
             <input
                 type="number"
                 value={pxValue}
