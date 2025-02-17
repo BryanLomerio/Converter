@@ -118,7 +118,7 @@ const AjaxConverter: React.FC = () => {
 
     const calculateRows = () => {
         const lines = inputFields.split("\n").length;
-        return Math.max(lines, 3); 
+        return Math.max(lines, 3);
     };
 
     return (
@@ -140,7 +140,7 @@ const AjaxConverter: React.FC = () => {
                 <textarea
                     value={inputFields}
                     onChange={handleInputChange}
-                    rows={calculateRows()} 
+                    rows={calculateRows()}
                     style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
                 />
             </div>
@@ -163,7 +163,7 @@ const AjaxConverter: React.FC = () => {
                 />
             </div>
             <div>
-                <label>Function Name (Optional):</label>
+                <label>Function Name:</label>
                 <input
                     type="text"
                     value={functionName}
@@ -172,7 +172,7 @@ const AjaxConverter: React.FC = () => {
                 />
             </div>
             <div>
-                <label>Setlist Function (Optional):</label>
+                <label>Setlist Function:</label>
                 <input
                     type="text"
                     value={setlistFunction}
