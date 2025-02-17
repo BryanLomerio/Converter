@@ -3,14 +3,15 @@ import TabNavigation from "./TabNavigation";
 import SvgConverter from "./SvgConverter";
 import WebpConverter from "./WebpConverter";
 import PxToRemConverter from "./PxToRemConverter";
+import AjaxConverter from "./AjaxConverter";
 
 const Converter: React.FC = () => {
-    const [activeTab, setActiveTab] = useState<"svg" | "webp" | "px-rem">("svg");
+    const [activeTab, setActiveTab] = useState<"svg" | "webp" | "px-rem" | "ajax">("svg");
     const [svgFile, setSvgFile] = useState<File | null>(null);
     const [webpFile, setWebpFile] = useState<File | null>(null);
     const [conversionResult, setConversionResult] = useState<string | null>(null);
 
-    const handleTabSwitch = (tab: "svg" | "webp" | "px-rem") => {
+    const handleTabSwitch = (tab: "svg" | "webp" | "px-rem" | "ajax") => {
         setActiveTab(tab);
         setConversionResult(null);
     };
@@ -95,7 +96,7 @@ const Converter: React.FC = () => {
                 <WebpConverter webpFile={webpFile} conversionResult={conversionResult} onFileUpload={handleWebpUpload} onConvert={convertWebpToPng} />
             )}
             {activeTab === "px-rem" && <PxToRemConverter />}
-
+            {activeTab === "ajax" && <AjaxConverter />}
         </div>
     );
 };
