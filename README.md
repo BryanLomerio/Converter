@@ -1,1 +1,1 @@
-I made this because every other converter is full of ads, pop-ups, and annoying account sign-ups. **No ads, no accounts, just convert.** Simple as it should be.
+I made this because every other converter is full of ads, pop-ups, and annoying account sign-ups. **No ads, no accounts, just convert.** Simple as it should be
