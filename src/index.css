@@ -8,11 +8,12 @@ body {
 }
 
 .converter-container {
-  max-width: 31.25rem;
+  max-width: 80.25rem;
   margin: 0 auto;
   padding: 2rem;
   color: #e0e0e0;
   text-align: center;
+  justify-content: center;
 }
 
 .tab-container {
@@ -117,4 +118,88 @@ body {
 .download-link:hover {
   background: #e0e0e0;
   color: #121212;
+}
+
+.input-ajax {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+textarea {
+  width: 50%;
+  display: block;
+  margin: 1rem auto;
+  position: relative;
+  padding: 0.5rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.generate {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #2A2A2A;
+  color: white;
+  cursor: pointer;
+}
+
+.parent-generate {
+  margin: 20px auto;
+  /* centers the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+
+.code-container {
+  position: relative;
+  width: 100%;
+}
+
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #2A2A2A;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+select {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  width: 50%;
+  margin: 0 auto 1rem auto;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
